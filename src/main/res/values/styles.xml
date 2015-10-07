@@ -26,4 +26,17 @@
         <item name="android:windowActionBar">false</item>
     </style>
 
+    <style name="template_switch_dark">
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:text">@string/title_activity_main</item>
+        <item name="android:layout_marginStart">@dimen/size_large</item>
+        <item name="android:layout_marginEnd">@dimen/size_large</item>
+        <item name="android:layout_marginBottom">@dimen/size_small</item>
+        <item name="android:layout_marginTop">@dimen/size_small</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:checked">false</item>
+    </style>
+
 </resources>

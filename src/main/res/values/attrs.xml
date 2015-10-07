@@ -32,4 +32,8 @@
         <item>HOLO_DARK</item>
         <item>TRANSLUCENT_DARK</item>
     </string-array>
+
+    <attr name="switchLayout" format="reference|dimension" />
+    <attr name="controlLayout" format="reference|dimension" />
+    <attr name="contentLayout" format="reference|dimension"/>
 </resources>

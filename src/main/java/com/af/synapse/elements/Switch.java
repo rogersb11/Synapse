@@ -12,11 +12,11 @@ package com.af.synapse.elements;
 import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.LinearLayout.LayoutParams;
+import android.widget.Switch;
 import android.widget.TextView;
 
 import com.af.synapse.MainActivity;
@@ -41,7 +41,7 @@ import java.util.ArrayDeque;
 /**
  * Created by Andrei on 30/08/13.
  */
-public class SCheckBox extends BaseElement
+public class Switch extends BaseElement
                        implements CompoundButton.OnCheckedChangeListener,
                                   ActionValueNotifierClient,
                                   ActivityListener,
@@ -50,7 +50,7 @@ public class SCheckBox extends BaseElement
     private View elementView = null;
     private FrameLayout selectorFrame;
 
-    private CheckBox checkBox;
+    private Switch checkBox;
     private String command;
     private Runnable resumeTask = null;
 
@@ -67,14 +67,14 @@ public class SCheckBox extends BaseElement
 
     private boolean onCheckedChangedIgnore = false;
 
-    public SCheckBox(JSONObject element, LinearLayout layout,
+    public Switch(JSONObject element, LinearLayout layout,
                      MainActivity.TabSectionFragment fragment) {
         super(element, layout, fragment);
 
         if (element.containsKey("action"))
             this.command = (String) element.get("action");
         else
-            throw new IllegalArgumentException("SCheckBox has no action defined");
+            throw new IllegalArgumentException("Switch has no action defined");
 
         if (this.element.containsKey("label"))
             this.label = Utils.localise(element.get("label"));
@@ -111,11 +111,11 @@ public class SCheckBox extends BaseElement
             return elementView;
 
         View v = LayoutInflater.from(Utils.mainActivity)
-                                        .inflate(R.layout.template_checkbox, this.layout, false);
+                                        .inflate(R.layout.template_switch, this.layout, false);
         assert v != null;
         elementView = v;
 
-        checkBox = (CheckBox) v.findViewById(R.id.SCheckBox);
+        checkBox = (Switch) v.findViewById(R.id.Switch);
 
         v.setOnLongClickListener(this);
         checkBox.setOnLongClickListener(this);
@@ -141,7 +141,7 @@ public class SCheckBox extends BaseElement
          *  Nesting another element's view in our own for title and description.
          */
 
-        LinearLayout descriptionFrame = (LinearLayout) v.findViewById(R.id.SCheckBox_descriptionFrame);
+        LinearLayout descriptionFrame = (LinearLayout) v.findViewById(R.id.Switch_descriptionFrame);
 
         if (titleObj != null) {
             TextView titleView = (TextView)titleObj.getView();

@@ -82,7 +82,7 @@ public class SGeneric extends BaseElement
         if (element.containsKey("action"))
             this.command = (String) element.get("action");
         else
-            throw new IllegalArgumentException("SCheckBox has no action defined");
+            throw new IllegalArgumentException("Switch has no action defined");
 
         if (this.element.containsKey("label"))
             this.label = Utils.localise(element.get("label"));
